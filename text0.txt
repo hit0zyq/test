@@ -1,0 +1,19 @@
+比特币：加密货币（crypto-currency）
+
+1.哈希函数的性质【cryptographic hash function】
+    哈希碰撞【collision resistance】： x!=y ，H(x)=H(y) 
+      给定m，可求得H(m)，但很难找到m'，使H(m)=H(m')
+      应用：判断文件被篡改
+      MD5已经知道其哈希碰撞。
+    单向不可逆【hiding】：x->H(x)，H(x)推出x。
+      条件：空间足够大，分布尽可能均匀
+      应用：【digital commitment  =  collision resistance + hiding】
+        H(x)公布出去，揭晓后公布x，保证不可篡改
+    哈希值事先不可预测，想要H(x)在某个范围，必须一个个试【puzzle friendly】
+      挖矿？ 找随机数nonce，使得H(block header)<=target
+        (proof of work:工作量证明）	difficult to solve,but easy to verify
+      比特币所用哈希函数：SHA-256【Secure Hash Algorithm】
+2.签名（本地创建一个公钥私钥对）【public key,private key】
+		a. 对称的加密体系：单一私钥解密，密钥分发不方便
+		    非对称加密体系：利用接收者的公钥与私钥进行加密与解密。
+
